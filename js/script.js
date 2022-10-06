@@ -6,7 +6,7 @@
 //     popover.classList.toggle('active');
 // })
 
-let closeContacts = document.getElementById("close-button");
+let closeContacts = document.getElementById("closeButton");
 closeContacts.addEventListener("click", function () {
   console.log("click");
   // let current = document.getElementsByClassName("contacts-popover");

@@ -139,7 +139,7 @@ for (let key in data) {
   salaryOut = data[key].salary;
 
   document.getElementById("name").innerHTML = titleOut;
-  document.getElementById("last_online").innerHTML = lastOnlineOut;
+  document.getElementById("lastOnline").innerHTML = lastOnlineOut;
   document.getElementById("date").innerHTML = dateOut;
   document.getElementById("salary").innerHTML = salaryOut;
 
@@ -167,4 +167,4 @@ for (let key in data) {
 }
 
 let mainTitleOut = `Найдено ${counter} результатов`;
-document.getElementById("main__title").innerHTML = mainTitleOut;
+document.getElementById("mainTitle").innerHTML = mainTitleOut;

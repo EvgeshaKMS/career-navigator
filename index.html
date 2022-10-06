@@ -1,216 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/styles.css" />
-    <link rel="import" href="./html/_header.html" />
-  </head>
-  <body>
-    <div class="wrapper">
-      <header class="header">
-        <div class="header__top top-header">
-          <div class="top-header__container">
-            <div class="top-header__menu">
-              <ul class="top-header__menu-list">
-                <li><a href="#">Заявка на специалиста</a></li>
-                <li><a href="#">Корпоративный стандарт</a></li>
-                <li><a href="#" id="list__market-place">МаркетПлейс</a></li>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="header">
+      <div class="header_top top-header">
+        <div class="top-header__container">
+          <ul class="top-header__menu-list">
+            <li>
+              <a href="#">Заявка на специалиста</a>
+            </li>
+            <li>
+              <a href="#">Корпоративный стандарт</a>
+            </li>
+            <li>
+              <a href="#" id="listMarketPlace">МаркетПлейс</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="header__body body-header">
+        <div class="body-header__container">
+
+          <a class="body-header__logo" href="#top" alt="logo"><img src="./icons/header/logoHeader.svg" />
+          </a>
+
+          <div class="body-header__menu">
+            <nav class="body-header__menu-body">
+              <ul class="body-header__menu-list">
+                <li>
+                  <a href="#" class="vacancies">Вакансии</a>
+                </li>
+                <li>
+                  <a href="#">Анкеты</a>
+                </li>
+                <li>
+                  <a href="#">Компании</a>
+                </li>
+                <li>
+                  <a href="#">Курсы</a>
+                </li>
+                <li>
+                  <a href="#">О нас</a>
+                </li>
+                <li>
+                  <a href="#">Помощь</a>
+                </li>
               </ul>
+            </nav>
+          </div>
+
+          <div class="body-header__items">
+            <ul class="items__icons">
+              <li>
+                <a href="#"><img src="./icons/header/heart.svg" alt="heart" /></a>
+              </li>
+              <li>
+                <a href="#"><img src="./icons/header/bell.svg" alt="bell" /></a>
+              </li>
+              <li>
+                <a href="#"><img src="./icons/header/comment.svg" alt="comment" /></a>
+              </li>
+              <li>
+                <a href="#"><img src="./icons/header/account.svg" alt="account" /></a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </header>
+    <main class="main">
+      <div id="top"></div>
+      <div class="main__container">
+        <div class="main__content">
+
+          <h1 id="mainTitle" class="main__title"></h1>
+
+          <div class="main__category-popover">
+            <span id="category">Все элементы</span>
+            <ul class="all-categories">
+              <li>
+                <a id="category-1">Все элементы</a>
+              </li>
+              <li>
+                <a id="category-2">Вакансии</a>
+              </li>
+              <li>
+                <a id="category-3">Резюме</a>
+              </li>
+              <li>
+                <a id="category-4">Курсы</a>
+              </li>
+            </ul>
+          </div>
+
+          <div id="cards" class="main__cards cards">
+            <div id="card" class="cards__card">
+              <div class="card__card-information">                
+                <div class="card-information__dates">
+                  <span id="lastOnline" class="dates__text"></span>
+                  <span id="date" class="dates__text"></span>
+                </div>
+
+                <div class="card-information__info-block">
+                  <h2 class="info-block__title">
+                    <a id="name" href="#" class="title__link"></a>
+                  </h2>
+                  <span id="additionalInformation" class="info-block__description"></span>
+                  <span class="info-block__info">
+                    Работа на лето, работа во время учёбы
+                  </span>
+                  <span id="salary" class="info-block__salary"></span>
+                </div>
+
+                <div class="card-information__tags">
+                  <div class="tags__tag">
+                    <span id="skills" class="tag__name"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card__buttons">
+                <div class="buttons__left-buttons">
+                  <button class="respond">Откликнуться</button>
+                  <button id="contacts" class="contacts">
+                    <span>
+                      Показать контакты
+                    </span>
+                    <div class="contacts-popover">
+                      <span class="popover-title">Контакты
+                        <img id="closeButton" src="./icons/main/closeIcon.svg" alt=""/>
+                      </span>
+                      <ul class="popover-list">
+                        <li id="contact" class="contact"></li>
+                      </ul>
+                    </div>
+                  </button>
+                </div>
+                <button class="favorites"></button>
+              </div>
             </div>
           </div>
         </div>
+      </div>
+    </main>
 
-        <div class="header__body body-header">
-          <div class="body-header__container">
-            <div class="body-header__logo">
-              <a href="#top" alt="logo"><img src="./icons/logoHeader.svg" /></a>
-            </div>
-            <div class="body-header__menu">
-              <nav class="body-header__menu-body">
-                <ul class="body-header__menu-list">
-                  <li><a href="#" class="vacancies">Вакансии</a></li>
-                  <li><a href="#">Анкеты</a></li>
-                  <li><a href="#">Компании</a></li>
-                  <li><a href="#">Курсы</a></li>
-                  <li><a href="#">О нас</a></li>
-                  <li><a href="#">Помощь</a></li>
+    <footer class="footer">
+      <div class="footer__main main-footer">
+        <div class="main-footer__container">
+          <div class="main-footer__box">
+
+            <div class="main-footer__marketplace">
+              <h3 class="marketplace__title">МаркетПлейс</h3>
+              <nav class="marketplace__menu">
+                <ul class="main-footer__list">
+                  <li>
+                    <a href="#" class="footer__text">Вакансии</a>
+                  </li>
+                  <li>
+                    <a href="#" class="footer__text">Резюме</a>
+                  </li>
+                  <li>
+                    <a href="#" class="footer__text">Компании</a>
+                  </li>
+                  <li>
+                    <a href="#" class="footer__text">Курсы</a>
+                  </li>
+                  <li>
+                    <a href="#" class="footer__text">О нас</a>
+                  </li>
                 </ul>
               </nav>
             </div>
-            <div class="body-header__items">
-              <ul class="items__icons">
-                <li>
-                  <a href="#"><img src="./icons/heart.svg" alt="heart" /></a>
-                </li>
-                <li>
-                  <a href="#"><img src="./icons/bell.svg" alt="bell" /></a>
-                </li>
-                <li>
-                  <a href="#"
-                    ><img src="./icons/comment.svg" alt="comment"
-                  /></a>
-                </li>
-                <li>
-                  <a href="#"
-                    ><img src="./icons/account.svg" alt="account"
-                  /></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </header>
-      <main class="main">
-        <div id="top"></div>
-        <div class="main__container">
-          <div class="main__content">
-            <h1 id="main__title" class="main__title"></h1>
-            <div class="main__category-popover">
-              <span id="category">Все элементы</span>
-              <ul class="all-categories">
-                <li><a id="category-1">Все элементы</a></li>
-                <li><a id="category-2">Вакансии</a></li>
-                <li><a id="category-3">Резюме</a></li>
-                <li><a id="category-4">Курсы</a></li>
-              </ul>
-            </div>
-            <div id="cards" class="main__cards cards">
-              <div id="card" class="cards__card">
-                <div class="card__card-information">
-                  <div class="card-information__dates">
-                    <span id="last_online" class="dates__text"></span>
-                    <span id="date" class="dates__text"></span>
-                  </div>
-                  <div class="card-information__info-block">
-                    <h2 class="info-block__title">
-                      <a id="name" href="#" class="title__link"></a>
-                    </h2>
-                    <span
-                      id="additionalInformation"
-                      class="info-block__description"
-                    ></span>
-                    <span class="info-block__info"
-                      >Работа на лето, работа во время учёбы</span
-                    >
-                    <span id="salary" class="info-block__salary"></span>
-                  </div>
 
-                  <div class="card-information__tags">
-                    <div class="tags__tag">
-                      <span id="skills" class="tag__name"></span>
-                    </div>
-                  </div>
-                </div>
-                <div class="card__buttons">
-                  <div class="buttons__left-buttons">
-                    <button class="respond">Откликнуться</button>
-                    <button id="contacts" class="contacts">
-                      <span>Показать контакты</span>
-                      <div class="contacts-popover">
-                        <span class="popover-title">Контакты<img id="close-button" src="./icons/closeIcon.svg" alt=""></span>
-                        <ul class="popover-list">
-                          <li id="contact" class="contact"></li>
-                        </ul>
-                      </div>
-                    </button>
-                  </div>
-                  <button class="favorites"></button>
-                </div>
+            <div class="main-footer__requests">
+              <div class="corporate-standard">
+                <h3 class="main-footer__title">Корпоративный стандарт</h3>
+                <span>
+                  <a href="#" class="footer__text">Создать заявку</a>
+                </span>
               </div>
+              <div class="specialist-request">
+                <h3 class="main-footer__title">Заявка на специалиста</h3>
+                <span>
+                  <a href="#" class="footer__text">Заполнить запрос</a>
+                </span>
+              </div>
+            </div>
+
+            <div class="main-footer__contacts">
+              <h3 class="main-footer__title">Контакты</h3>
+              <ul class="main-footer__list">
+                <li>
+                  <a href="mailto:info@archksakhalin.ru" class="footer__text">info@archksakhalin.ru</a>
+                </li>
+                <li>
+                  <a href="tel:+74242311414" class="footer__text">+7 (4242) 311-414</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="main-footer__help">
+              <h3 class="main-footer__title">Помощь</h3>
+              <ul class="main-footer__list">
+                <li>
+                  <a href="#" class="footer__text">Перейти в телеграм-канал</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="main-footer__items">
+              <a href="#top" alt="logo"><img src="./icons/footer/logoFooter.svg" /></a>
+              <ul class="footer__icons">
+                <li>
+                  <a href="#"><img src="./icons/footer/logoVk.svg" alt="vk" /></a>
+                </li>
+                <li>
+                  <a href="#"><img src="./icons/footer/logoTelegram.svg" alt="tg" /></a>
+                </li>
+                <li>
+                  <a href="#"><img src="./icons/footer/logoYT.svg" alt="yt" /></a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
-      </main>
-      <footer class="footer">
-        <div class="footer__main main-footer">
-          <div class="main-footer__container">
-            <div class="main-footer__box">
-              <div class="main-footer__marketplace">
-                <h3 class="marketplace__title">МаркетПлейс</h3>
-                <nav class="marketplace__menu">
-                  <ul class="main-footer__list">
-                    <li><a href="#" class="footer__text">Вакансии</a></li>
-                    <li><a href="#" class="footer__text">Резюме</a></li>
-                    <li><a href="#" class="footer__text">Компании</a></li>
-                    <li><a href="#" class="footer__text">Курсы</a></li>
-                    <li><a href="#" class="footer__text">О нас</a></li>
-                  </ul>
-                </nav>
-              </div>
-              <div class="main-footer__requests">
-                <div class="corporate-standard">
-                  <h3 class="main-footer__title">Корпоративный стандарт</h3>
-                  <span
-                    ><a href="#" class="footer__text">Создать заявку</a></span
-                  >
-                </div>
-                <div class="specialist-request">
-                  <h3 class="main-footer__title">Заявка на специалиста</h3>
-                  <span
-                    ><a href="#" class="footer__text">Заполнить запрос</a></span
-                  >
-                </div>
-              </div>
-              <div class="main-footer__contacts">
-                <h3 class="main-footer__title">Контакты</h3>
-                <ul class="main-footer__list">
-                  <li>
-                    <a href="mailto:info@archksakhalin.ru" class="footer__text"
-                      >info@archksakhalin.ru</a
-                    >
-                  </li>
-                  <li>
-                    <a href="tel:+74242311414" class="footer__text"
-                      >+7 (4242) 311-414</a
-                    >
-                  </li>
-                </ul>
-              </div>
-              <div class="main-footer__help">
-                <h3 class="main-footer__title">Помощь</h3>
-                <ul class="main-footer__list">
-                  <li>
-                    <a href="#" class="footer__text"
-                      >Перейти в телеграм-канал</a
-                    >
-                  </li>
-                </ul>
-              </div>
-              <div class="main-footer__items">
-                <a href="#top" alt="logo"
-                  ><img src="./icons/logoFooter.svg"
-                /></a>
-                <ul class="footer__icons">
-                  <li>
-                    <a href="#"><img src="./icons/logoVk.svg" alt="vk" /></a>
-                  </li>
-                  <li>
-                    <a href="#"
-                      ><img src="./icons/logoTelegram.svg" alt="tg"
-                    /></a>
-                  </li>
-                  <li>
-                    <a href="#"><img src="./icons/logoYT.svg" alt="yt" /></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="bottom-footer__container">
+          <div class="bottom-footer__content">
+            <span class="footer__text">Политика конфиденциальности</span>
+            <span class="footer__text">Навигатор карьеры © 2022</span>
           </div>
         </div>
-        <div class="footer__bottom">
-          <div class="bottom-footer__container">
-            <div class="bottom-footer__content">
-              <span class="footer__text">Политика конфиденциальности</span
-              ><span class="footer__text">Навигатор карьеры © 2022</span>
-            </div>
-          </div>
-        </div>
-      </footer>
-      <script src="./js/script.js"></script>
-      <script src="./js/mockData.js"></script>
-    </div>
-  </body>
+      </div>
+    </footer>
+    <script src="./js/mockData.js"></script>
+  </div>
+</body>
+
 </html>
