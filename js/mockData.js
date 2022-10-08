@@ -341,5 +341,4 @@ const showCourses = courses.onclick = () => {
     mainTitleOut = `Найдено ${courseCounter} курсов`;
   }
   document.getElementById("mainTitle").innerHTML = mainTitleOut;
-
 }
