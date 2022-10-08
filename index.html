@@ -87,8 +87,14 @@
           <h1 id="mainTitle" class="main__title"></h1>
 
           <div class="main__category-popover">
-            <span id="category">Все элементы</span>
-            <ul class="all-categories">
+            <div id="category" class="popover_block">
+              <span id="categoryTitle" class="popover__title">Все элементы</span>            
+              <img class="popover__arrow-down" src="../icons/arrowDown.svg" alt="">
+            </div>
+            <ul id="popover-categories" class="all-categories closed-popout">
+              <li>
+                <span class="close-popover-button ">&times;</span>
+              </li>
               <li>
                 <a id="category-1">Все элементы</a>
               </li>
@@ -138,10 +144,10 @@
                       Показать контакты
                     </span>
                     <div class="contacts-popover">
-                      <span class="popover-title">Контакты
+                      <span class="contacts-popover__title">Контакты
                         <img id="closeButton" src="./icons/main/closeIcon.svg" alt=""/>
                       </span>
-                      <ul class="popover-list">
+                      <ul class="contacts-popover__list">
                         <li id="contact" class="contact"></li>
                       </ul>
                     </div>
@@ -246,6 +252,7 @@
       </div>
     </footer>
     <script src="./js/mockData.js"></script>
+    <script src="./js/script.js"></script>
   </div>
 </body>
 
