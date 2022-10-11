@@ -91,23 +91,26 @@
               <span id="categoryTitle" class="popover__title">Все элементы</span>            
               <img class="popover__arrow-down" src="../icons/arrowDown.svg" alt="">
             </div>
-            <ul id="popover-categories" class="all-categories closed-popout">
-              <li>
-                <span class="close-popover-button ">&times;</span>
-              </li>
-              <li>
-                <a id="category-1">Все элементы</a>
-              </li>
-              <li>
-                <a id="category-2">Вакансии</a>
-              </li>
-              <li>
-                <a id="category-3">Резюме</a>
-              </li>
-              <li>
-                <a id="category-4">Курсы</a>
-              </li>
-            </ul>
+            <div id="popover-categories" class="all-categories closed-popover">
+              <ul>
+                <!-- <li>
+                  <span class="close-popover-button ">&times;</span>
+                </li> -->
+                <li>
+                  <a id="category-1">Все элементы</a>
+                </li>
+                <li>
+                  <a id="category-2">Вакансии</a>
+                </li>
+                <li>
+                  <a id="category-3">Резюме</a>
+                </li>
+                <li>
+                  <a id="category-4">Курсы</a>
+                </li>
+              </ul>
+              <span class="close-popover-button ">&times;</span>
+            </div>
           </div>
 
           <div id="cards" class="main__cards cards">
@@ -251,8 +254,8 @@
         </div>
       </div>
     </footer>
-    <script src="./js/mockData.js"></script>
-    <script src="./js/script.js"></script>
+    <script src="./js/popoverScript.js"></script>
+    <script type="module" src="./js/script.js"></script>
   </div>
 </body>
 
