@@ -1,143 +1,39 @@
 import { data } from './mockData.js'
-import { openPopover, closePopover} from './popoverScript.js'
+import { openPopover, closePopover } from './popoverScript.js'
+import { createNewCard } from './card.js';
+import { calculateAllCategories, calculateVacancies, calculateResume, calculateCourses } from './categoryCounter.js';
+// import { openContacts, closeContacts } from './contactsPopover.js'
 
-const createNewCard = (type, lastOnline, date, name, additionalInformation, salary, skills, contacts) => `
-<div id="card" class="cards__card${addCardType(type)}">
-    <div class="card__card-information">                
-      <div class="card-information__dates">
-        <span id="lastOnline" class="dates__text">${lastOnline}</span>
-        <span id="date" class="dates__text">${date}</span>
-      </div>
-
-      <div class="card-information__info-block">
-        <h2 class="info-block__title">
-          <a id="name" href="#" class="title__link">${name}</a>
-        </h2>
-        <span id="additionalInformation" class="info-block__description">${additionalInformation.join(', ')}</span>
-        <span class="info-block__info">
-          Работа на лето, работа во время учёбы
-        </span>
-        <span id="salary" class="info-block__salary">${salary}</span>
-      </div>
-
-      <div id="tags" class="card-information__tags">
-        ${createNewTag(skills)}
-      </div>
-    </div>
-
-    <div class="card__buttons">
-      <div class="buttons__left-buttons">
-        <button class="respond">Откликнуться</button>
-        <button id="contacts" class="contacts">
-          <span>
-            Показать контакты
-          </span>
-          <div class="contacts-popover">
-            <span class="contacts-popover__title">Контакты
-              <img id="closeButton" src="./icons/main/closeIcon.svg" alt=""/>
-            </span>
-            <ul class="contacts-popover__list">
-              ${addContact(contacts)}
-            </ul>
-          </div>
-        </button>
-      </div>
-      <button class="favorites"></button>
-    </div>
-</div>`
-
-const createNewTag = (skill) => {
-  let tags = '';
-  skill.forEach(elem => {
-    tags += `<div class="tags__tag">
-    <span id="skills" class="tag__name">${elem}</span>
-</div>`;
-  })
-  return tags;
-}
-
-const addContact = (contactArr) => {
-  let contacts = '';
-  contactArr.forEach(elem => {
-    contacts += `<li id="contact" class="contact">${elem}</li>`
-  })
-  return contacts;
-}
-
-const addCardType = (type) => {
-  if (type === 'Вакансия') {
-    return ' vacancy';
-  } else if (type === 'Резюме'){
-    return ' resume';
-  } else if (type === 'Курс') {
-    return ' course';
-  }
-}
-
-const calculateAllCategories = (counter) => {
-  if (counter === 0) {
-    return `Результатов не найдено`;
-  } else if (counter % 10 === 1 && counter % 100 !== 11) {
-    return `Найден ${counter} результат`;
-  } else if ((counter % 10 === 2 || counter % 10 === 3 || counter % 10 === 4) && (counter % 100 !== 12 || counter % 100 !== 13 || counter % 100 !== 14)) {
-    return `Найдено ${counter} результата`;
-  } else {
-    return `Найдено ${counter} результатов`;
-  }
-}
-
-const calculateVacancies = (counter) => {
-  if (counter === 0) {
-    return `Вакансий не найдено`;
-  } else if (counter % 10 === 1 && counter % 100 !== 11) {
-    return `Найденa ${counter} вакансия`;
-  } else if ((counter % 10 === 2 || counter % 10 === 3 || counter % 10 === 4) && (counter % 100 !== 12 || counter % 100 !== 13 || counter % 100 !== 14)) {
-    return `Найдено ${counter} вакансии`;
-  } else {
-    return `Найдено ${counter} вакансий`;
-  }
-}
-
-const calculateResume = (counter) => {
-  if (counter === 0) {
-    return `Резюме не найдено`;
-  } else {
-    return `Найдено ${counter} резюме`;
-  }
-}
-
-const calculateCourses = (counter) => {
-  if (counter === 0) {
-    return `Курсов не найдено`;
-  } else if (counter % 10 === 1 && counter % 100 !== 11) {
-    return `Найден ${counter} курс`;
-  } else if ((counter % 10 === 2 || counter % 10 === 3 || counter % 10 === 4) && (counter % 100 !== 12 || counter % 100 !== 13 || counter % 100 !== 14)) {
-    return `Найдено ${counter} курса`;
-  } else {
-    return `Найдено ${counter} курсов`;
-  }
-}
-
-const popover = document.getElementById('popover-categories'),
-popoverToggle = document.getElementById('category'),
-popoverClose = document.querySelector('.close-popover-button '),
-arrow = document.querySelector('.popover__arrow-down');
+const popoverToggle = document.getElementById('category'),
+  popoverClose = document.querySelector('.close-popover-button ');
 
 let isPopoverOpen = false;
 
 //поповер с категориями
-popoverToggle.onclick = () => { 
-  if(isPopoverOpen === false){
+popoverToggle.onclick = () => {
+  if (isPopoverOpen === false) {
     openPopover();
-  } 
+    isPopoverOpen = true;
+  }
   else {
     closePopover()
+    isPopoverOpen = false;
   }
 }
 
 popoverClose.onclick = () => {
   closePopover();
+  isPopoverOpen = false;
 }
+
+window.addEventListener('click', (e) => {
+  const isClosest = e.target.closest('.main__category-popover');
+  if (!isClosest && isPopoverOpen) {
+    closePopover();
+    isPopoverOpen = false;
+  }
+})
+
 
 const allCards = document.getElementById('cards');
 
@@ -146,6 +42,7 @@ let counter = 0,
   resumeCounter = 0,
   courseCounter = 0;
 
+//создание карточки и подсчет типов
 data.forEach(elem => {
   allCards.innerHTML += createNewCard(elem.type, elem.lastOnline, elem.date, elem.name, elem.additionalInformation, elem.salary, elem.skills, elem.contacts);
   if (elem.type === "Вакансия") {
@@ -182,6 +79,7 @@ allCategories.onclick = () => {
     element.classList.remove('card__hide-card');
   });
   closePopover();
+  isPopoverOpen = false;
 
   mainTitleOut = calculateAllCategories(counter);
   getTitle.innerHTML = mainTitleOut;
@@ -202,8 +100,9 @@ vacansies.onclick = () => {
     element.classList.add('card__hide-card');
   });
   closePopover();
+  isPopoverOpen = false;
 
-  mainTitleOut = calculateVacancies(vacancyCounter); 
+  mainTitleOut = calculateVacancies(vacancyCounter);
   getTitle.innerHTML = mainTitleOut;
 
 }
@@ -222,8 +121,9 @@ resumes.onclick = () => {
     element.classList.add('card__hide-card');
   });
   closePopover();
+  isPopoverOpen = false;
 
-  mainTitleOut = calculateResume(resumeCounter) ;
+  mainTitleOut = calculateResume(resumeCounter);
   getTitle.innerHTML = mainTitleOut;
 
 }
@@ -241,8 +141,47 @@ courses.onclick = () => {
     element.classList.remove('card__hide-card');
   });
   closePopover();
+  isPopoverOpen = false;
 
   mainTitleOut = calculateCourses(courseCounter);
   getTitle.innerHTML = mainTitleOut;
 }
 
+//кнопка с контактами
+const openContacts = (e) => {
+  e.classList.add('open');
+}
+
+const closeContacts = (e) => {
+  e.classList.remove('open');
+}
+
+const contactsButton = document.querySelectorAll('#contacts')
+
+contactsButton.forEach(e => {
+  let isContactsOpen = false;
+  const contacts = e.nextElementSibling;
+  e.onclick = () => {
+    if (isContactsOpen === false) {
+      openContacts(contacts);
+      isContactsOpen = true;
+    } else {
+      closeContacts(contacts);
+      isContactsOpen = false;
+    }
+  }
+
+  const closeContactsButton = contacts.firstElementChild.lastElementChild;
+  closeContactsButton.onclick = () => {
+    closeContacts(contacts);
+    isContactsOpen = false;
+  }
+
+  window.addEventListener('click', (elem) => {
+    const isClosest = elem.target.closest('.contacts');
+    if (!isClosest && isContactsOpen) {
+      closeContacts(contacts);
+      isContactsOpen = false;
+    }
+  })
+})
